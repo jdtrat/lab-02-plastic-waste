@@ -38,13 +38,24 @@ ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
 
 ### Exercise 2
 
+Yep, definitely looks like a $\gamma$ distribution.
+
 ```{r plastic-waste-density}
-# insert code here
+ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_density()
 ```
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+```{r plastic-waste-density-alpha}
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density(alpha = 0.2)
+```
+
+We defined the color and fill of the curves by mapping the aesthetics of the plot because those are dependent upon the continent variable. We defined the alpha outside of that because that is independent of any variables. That is, we map aesthetics to variables but not things independent of them.
 
 ### Exercise 4
 
