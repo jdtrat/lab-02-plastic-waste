@@ -62,8 +62,15 @@ We defined the color and fill of the curves by mapping the aesthetics of the plo
 Remove this text, and add your answer for Exercise 4 here.
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = continent, 
+                     y = plastic_waste_per_cap,
+                     color = continent, 
+                     fill = continent)) +
+  geom_violin()
 ```
+
+The violin plot reveals the relative distribution of each variable (i.e. the density within groupings). It is, according to the docs, a combination of `geom_density()` and `geom_boxplot()`.
 
 ### Exercise 5
 
