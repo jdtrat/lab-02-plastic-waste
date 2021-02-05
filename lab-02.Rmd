@@ -1,8 +1,17 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Insert your name here"
-date: "Insert date here"
-output: github_document
+author: "Jonathan Trattner"
+date: "Last compiled on `r format(Sys.time(), '%B %d, %Y')`"
+output: 
+  html_document:
+    df_print: paged
+    toc: true
+    toc_depth: 4
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    theme: journal
+    highlight: monochrome
 ---
 
 ## Load packages and data
@@ -19,10 +28,12 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+The distributions are right-skewed! Maybe it looks like a $\gamma$ distribution.
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(plastic_waste, aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2) + 
+  facet_wrap(~continent)
 ```
 
 ### Exercise 2
