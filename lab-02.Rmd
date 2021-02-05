@@ -125,5 +125,19 @@ Neither of these plots seem to have a stronger linear relationship than the one 
 Remove this text, and add your answer for Exercise 8 here.
 
 ```{r recreate-viz}
-# insert code here
+
+plastic_waste %>%
+  mutate(coast_prop = coastal_pop / total_pop) %>%
+  filter(plastic_waste_per_cap < 3) %>%
+  ggplot(aes(x = coast_prop,
+             y = plastic_waste_per_cap)) +
+  geom_point(aes(color = continent)) +
+  geom_smooth(color = "black") +
+  scale_color_viridis_d() +
+  theme_minimal() +
+  labs(title = "Plastic waste vs. coastal population proportion",
+       subtitle = "by continent",
+       color = "Continent",
+       x = "Coastal population proportion (Coastal / total population)",
+       y = "Plastic waste per capita")
 ```
