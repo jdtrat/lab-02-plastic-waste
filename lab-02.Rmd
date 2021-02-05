@@ -77,28 +77,48 @@ The violin plot reveals the relative distribution of each variable (i.e. the den
 Remove this text, and add your answer for Exercise 5 here.
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     y = mismanaged_plastic_waste_per_cap)) +
+  geom_point()
 ```
 
-### Exercise 6
+There seems to be a positive relationship between mismanaged plastic waste per cap and plastic waste per cap (perhaps unsurprisingly).
+
+### Exercise 6 {#exercise-6}
 
 Remove this text, and add your answer for Exercise 6 here.
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     y = mismanaged_plastic_waste_per_cap,
+                     color = continent)) +
+  geom_point()
 ```
+
+There don't seem to be any *clear* distinctions between continents and plastic waste (mismanagement) per capita. Though *maybe* Asia and Africa look like they have a higher slope...?
 
 ### Exercise 7
 
 Remove this text, and add your answer for Exercise 7 here.
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     y = total_pop)) +
+  geom_point()
+
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     y = coastal_pop)) +
+  geom_point()
 ```
+
+Neither of these plots seem to have a stronger linear relationship than the one seen in [exercise 6](#exercise-6)
 
 ### Exercise 8
 
